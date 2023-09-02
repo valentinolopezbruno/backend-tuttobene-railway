@@ -52,7 +52,7 @@ con.connect(function(err) {
 
 
 app.get('/imagenes/productos/:img', function(req, res){
-    res.sendFile( `https://backend-tuttobene-railway-production.up.railway.app/imagenes/productos/${req.params.img}` );
+    res.sendFile( `${__dirname}/imagenes/productos/${req.params.img}` );
 }); 
 
 /* USERS */
@@ -689,7 +689,7 @@ app.post('/api/products/add', async (req, res) => {
                 await mysqlQuery(`INSERT INTO variaciones_value (valor, variacionid) VALUES (?, ?)`, [ variaciones[i].options[j].value, variacionId ])
             }
 
-            img.mv(`https://backend-tuttobene-railway-production.up.railway.app/imagenes/productos/${imagen}`, (err) => {
+            img.mv(`${__dirname}/imagenes/productos/${imagen}`, (err) => {
                 if(err) return console.log(err)
             })
             res.send({code: 1})
