@@ -20,12 +20,14 @@ app.use(bodyParser.urlencoded({
 }))
 app.use(express.static('imagenes'));
 
+const PORT = process.env.PORT || 3001;
 
 app.set('PORT', 3001)
 
-app.listen(app.get('PORT'), () => {
-    console.log(`Server listening on port ${app.get('PORT')}...`)
-})
+app.listen(PORT, () => {
+    console.log("app corriendo en puerto " + PORT);
+  });
+  
 
 
 /*const con = mysql.createConnection({
