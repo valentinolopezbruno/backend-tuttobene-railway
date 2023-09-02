@@ -1,5 +1,5 @@
 const express = require('express')
-const mysql = require('mysql')
+const mysql = require('mysql2')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload');
@@ -36,10 +36,11 @@ app.listen(app.get('PORT'), () => {
 })*/
 
 const con = mysql.createConnection({
-    host:'localhost',
-    database:'tuttobene',
+    host:'containers-us-west-133.railway.app',
+    database:'railway',
     user:'root',
-    password:''
+    password:'3FXpjTDEhcDFMF1Xji0G',
+    port:6810
 })
 
 con.connect(function(err) {
