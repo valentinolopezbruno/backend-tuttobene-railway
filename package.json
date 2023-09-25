@@ -1,16 +1,21 @@
 {
+  "name": "server",
+  "version": "1.0.0",
+  "description": "\"# tuttobene-server\"",
+  "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.7.1"
+  },
+  "devDependencies": {
     "body-parser": "^1.20.2",
     "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "express-fileupload": "^1.4.0",
-    "mercadopago": "^1.5.16",
-    "mysql": "^2.18.1",
-    "mysql2": "^3.6.0",
-    "nodemon": "^2.0.22",
-    "path": "^0.12.7"
+    "mysql": "^2.18.1"
   }
 }
