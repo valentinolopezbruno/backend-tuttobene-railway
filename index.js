@@ -39,7 +39,7 @@ const certificate = fs.readFileSync('/var/www/certs/tuttobene.online.pem', 'utf-
 //const credentials = {}
 
 
-const server = https.createServer(app);
+const server = https.createServer({},app);
 
 const io = new Server(server ,{
     cors: {
