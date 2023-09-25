@@ -5,8 +5,8 @@ const bodyParser = require('body-parser')
 const fileUpload = require('express-fileupload');
 const path = require('path');
 var mercadopago = require('mercadopago');
-/* const https = require('https'); */
-const http = require('http')
+const https = require('https');
+/* const http = require('http') */
 const fs = require('fs');
 const { Server } = require("socket.io");
 
@@ -39,7 +39,7 @@ const certificate = fs.readFileSync('/var/www/certs/tuttobene.online.pem', 'utf-
 //const credentials = {}
 
 
-const server = http.createServer(app);
+const server = https.createServer(app);
 
 const io = new Server(server ,{
     cors: {
