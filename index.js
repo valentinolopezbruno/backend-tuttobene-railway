@@ -38,15 +38,15 @@ const certificate = fs.readFileSync('/var/www/certs/tuttobene.online.pem', 'utf-
 //const credentials = {}
 
 
-const server = http.createServer(app);
-
+/* const server = http.createServer(app); */
+/* 
 const io = new Server(server ,{
     cors: {
         origin: '*'
     }
-});
+}); */
 
-server.listen(app.get('PORT'), () => {
+app.listen(app.get('PORT'), () => {
     console.log(`Server listening on port ${app.get('PORT')}...`)
 })
 
@@ -217,7 +217,7 @@ app.post('/api/pedidos/changeState', async(req, res) => {
     const [err, result] = await mysqlQuery(`UPDATE pedidos SET estado = ?, enviado = ? WHERE id = ?`, [estado, enviado, pedido])
     if(err) return res.sendStatus(500).send({err_msg: 'MySQL error #1'})
     
-    io.emit('pedido:changeState', {pedido, estado, enviado})
+  /*   io.emit('pedido:changeState', {pedido, estado, enviado}) */
     res.send({code: 1, enviado})
 })
 
@@ -1110,6 +1110,6 @@ async function crear_compra(productos, nombre, tel, dire, ciudad, formaPago, for
     }
 
     
-    io.emit('compra:create', {nombre, telefono: tel, direccion: dire, ciudad, pago: formaPago, enviar: formaEnvio, id: idpedido, total, pagado, fecha, estado: 0, productos, enviado: 0})
-    return codigo
+/*     io.emit('compra:create', {nombre, telefono: tel, direccion: dire, ciudad, pago: formaPago, enviar: formaEnvio, id: idpedido, total, pagado, fecha, estado: 0, productos, enviado: 0})
+ */    return codigo
 }
