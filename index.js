@@ -28,7 +28,7 @@ app.use(cors({origin:'*'}));
 
 const PORT = process.env.PORT || 3001;
 
-app.set('PORT', 3001)
+app.set('PORT', PORT)
 
 /* const privateKey = fs.readFileSync('/var/www/certs/tuttobene.online.key', 'utf-8');
 const certificate = fs.readFileSync('/var/www/certs/tuttobene.online.pem', 'utf-8'); */
