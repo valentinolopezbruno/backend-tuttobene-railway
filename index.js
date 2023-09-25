@@ -29,16 +29,16 @@ app.use(cors({origin:'*'}));
 
 app.set('PORT', 2053)
 
-const privateKey = fs.readFileSync('/var/www/certs/tuttobene.online.key', 'utf-8');
-const certificate = fs.readFileSync('/var/www/certs/tuttobene.online.pem', 'utf-8');
+/* const privateKey = fs.readFileSync('/var/www/certs/tuttobene.online.key', 'utf-8');
+const certificate = fs.readFileSync('/var/www/certs/tuttobene.online.pem', 'utf-8'); */
 
-const credentials = { key: privateKey, cert: certificate };
+/* const credentials = { key: privateKey, cert: certificate }; */
 
 
 //const credentials = {}
 
 
-const server = https.createServer(credentials, app);
+const server = https.createServer({},app);
 
 const io = new Server(server ,{
     cors: {
