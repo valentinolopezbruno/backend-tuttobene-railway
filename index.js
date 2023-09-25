@@ -30,16 +30,63 @@ const PORT = process.env.PORT || 3001;
 
 app.set('PORT', PORT)
 
-/* const privateKey = fs.readFileSync('/var/www/certs/tuttobene.online.key', 'utf-8');
-const certificate = fs.readFileSync('/var/www/certs/tuttobene.online.pem', 'utf-8'); */
+const privateKey = `-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDLDikUaseHfmlp
+omdzC4dEWnpCA5HYpMVGqF71gfjrjPDv7pvsoFgPktCLmD9K7MPrcwuovZcLb2Ya
+K/sPdZU81vv+VCudLRRJrHs0K0thaTkK1p9nq5tI2Uz57NmsjLEZJAPe/zcuYvTJ
+bPTHwbrOe9rTIptM0UK9JanBrLmsScksPx68bpCQXzlizY6x1Yj1Kw0sIJ5Iz/hg
+L8GY/BbgRwqVgDcIqZ6HxSuGuBiMMwjWxUmCf6xgzYVQoeqCrU9NfWObRXVLaq2c
+aZbqCrfKVhuLRfkI1ifHKN1q5zDqGxYgbBiMBgSm33qHOA5nHaNz08Wj3XNfG9Mz
+eZYtrgdNAgMBAAECggEAWAQN029LiNRHLgY68De9jOfpGadBd1ZIus1tx95sPvIL
+V/0mMkX4lduOMQwv1zLU48Cs+5oemFLTv6FzxGoz47jOZxomA43QPvUYPG9Nz+4T
+zzpjw0Sz3Tpv7t93JR+g/mRJl0YqLZ2wPIVRfyre5fTyz9Uu2vfUBXgHYs+TdfWJ
+saaeW2qk3o4QHFk3ZwoR3jkLVy1GdqxIReY5CqV14J7omwk0A4gLONcqnJiJX9xp
+GTE3clfWWWTP+7lY+m4SwKHz2ZomR0WenhLGWmxfBqVY38+x9zmkVF/GCb57Gt9e
+nSOg2EtXxxn27JYohl4EOkBmCT9eK640nXBQEg5aUwKBgQD0PN0tkfPtvKu5ZmEb
+izlwOeZ7xSCn4YOYEa1/UtcUU2wA1ENlSNekU3FQL6sVQT9pSJTHGvXX91wJR8FH
+aYZmefRLfyx1Jmx2FkLieJaGouKGB+pk+vVfHUozs20np41Nh/HAyg26El1R5UKS
+SkZt1M5tZ5zjMWM8hMTByvUmPwKBgQDU1ZH7vs/LSICi6ovEiahbnR62t8L/P7wY
+Q/Xt3M+ti+zB8OlFeJK7HndXP6Vmq5cx8M0+hMv974ytrglZpC8hiiRxTp8tShKW
+vpVdX/N8v6a9IbOm2CY5GRLCqlsBd1cS2hujkcFta3wm9eSosX4sRzNftZGR9T3G
+QQHt3zXncwKBgDmzY2GPuLwytbNAX7K9Kp274BrfkH55BbjYfE+3R37S0pJDk4SL
+N/7ng7649Ec6OfvqnNOJKAmUs9axcBUp9gmhyDhJ3Dv1Duy7B6Qvbwhx1OhrWFHx
+BCUra0tZmXEj4Xsuocu1MJcEHa3qZtbe21K5Uud/8g2urk4u47kQ9OfLAoGBAIjG
+27NCU/3bETghrULYCIcfuS5JeBpbVkDt4+1CG4D3TGbysKcBrqJsGNvMPjp2CYuB
+qhUEeKgvu2OeVcny9osCYRskIK2VTc7smcbRNAQ2kiw3rWGKxT2qfGD349ZUYHPw
+ERUURY9RJQ9QtOsobeJ8u2pFoFCBn3p6Kog5C0Y7AoGASMtG339MH0bmlSM5oMkM
+AGemrz5ED1ei2JwhguSiy/puvHiegTrqwUgxyxIZX1VJIadwxT8uI3Bor8TG+gAz
+orAjNLy8dohYsiXdO1v+n05cAg3pZFpeUQUmpNkjh9HuLasIQ0psdP029n2RZ/sf
+YH6UrIhQWROxWz7I9khweiE=
+-----END PRIVATE KEY-----
+`
+const certificate = `-----BEGIN CERTIFICATE REQUEST-----
+MIIDODCCAiACAQAwgboxCzAJBgNVBAYTAkFSMQwwCgYDVQQIDANDQkExFDASBgNV
+BAcMC1ZpbGxhIE1hcmlhMRMwEQYDVQQKDApUdXR0byBCZW5lMRMwEQYDVQQLDApU
+dXR0byBCZW5lMTwwOgYDVQQDDDNiYWNrZW5kLXR1dHRvYmVuZS1yYWlsd2F5LXBy
+b2R1Y3Rpb24udXAucmFpbHdheS5hcHAxHzAdBgkqhkiG9w0BCQEWEGRkYXNkc2FA
+bWFpbC5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDLDikUaseH
+fmlpomdzC4dEWnpCA5HYpMVGqF71gfjrjPDv7pvsoFgPktCLmD9K7MPrcwuovZcL
+b2YaK/sPdZU81vv+VCudLRRJrHs0K0thaTkK1p9nq5tI2Uz57NmsjLEZJAPe/zcu
+YvTJbPTHwbrOe9rTIptM0UK9JanBrLmsScksPx68bpCQXzlizY6x1Yj1Kw0sIJ5I
+z/hgL8GY/BbgRwqVgDcIqZ6HxSuGuBiMMwjWxUmCf6xgzYVQoeqCrU9NfWObRXVL
+aq2caZbqCrfKVhuLRfkI1ifHKN1q5zDqGxYgbBiMBgSm33qHOA5nHaNz08Wj3XNf
+G9MzeZYtrgdNAgMBAAGgODAYBgkqhkiG9w0BCQIxCwwJdHV0dG9iZW5lMBwGCSqG
+SIb3DQEJBzEPDA1mZWxpYmxhbmNvMTIzMA0GCSqGSIb3DQEBCwUAA4IBAQC/7QAh
+5CQY16ncw5bkHsv96MUUrhCObXpG4HfFBj+y6qm31CAeZe3Zk4wm7IMBPmes/2RO
+Jd4ItzmM0/l6mXmdoPtqYt8kuf2UpjRj89wKXxEZNZaS4sxF0nr3b6LsmuX9I4DL
+QJnQVDU/5w3pTVqJxyO/sYc6BQauHDPODIv3DZYkqYCL4Hv9WUCy4TquC/997j8k
+CI/yinpSWYPewpE+/LrlBp5m9Sp5zFcpg22mJziF7RwPU/UQjGHXxu7jPr99Nkdw
+ungNaUtFOOAs7kugEXwQg7P9S/4gZIgIdCKcnSLP7CVV/AmkofH+yOUHd3vUdKZ8
+00RDe3LlQjhL0TZq
+-----END CERTIFICATE REQUEST-----`
 
-/* const credentials = { key: privateKey, cert: certificate }; */
+const credentials = { key: privateKey, cert: certificate };
 
 
-//const credentials = {}
+ //const credentials = {} 
 
 
-const server = https.createServer({},app);
+const server = https.createServer(credentials,app);
 
 const io = new Server(server ,{
     cors: {
