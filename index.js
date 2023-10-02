@@ -416,7 +416,7 @@ app.post('/api/admin/pedido', async(req, res) => {
             telefono,
             '-',
             '-',
-            1,
+            0,
             0
         );
     }
