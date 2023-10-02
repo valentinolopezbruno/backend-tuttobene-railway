@@ -406,8 +406,8 @@ app.post('/api/admin/pedido', async(req, res) => {
             telefono,
             direccion,
             ciudad,
-            0,
-            1
+            1,
+            enviar
         );
     } else {
         crear_compra(
@@ -416,8 +416,8 @@ app.post('/api/admin/pedido', async(req, res) => {
             telefono,
             '-',
             '-',
-            0,
-            0
+            1,
+            enviar
         );
     }
     res.send({code: 1})
