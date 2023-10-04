@@ -10,7 +10,7 @@ const https = require('https');
 const fs = require('fs');
 const { Server } = require("socket.io");
 
-mercadopago.configurations.setAccessToken("TEST-7444149544855350-041318-bf8625fce15161c5ca76eff187a54d1b-200576816");
+//mercadopago.configurations.setAccessToken("TEST-7444149544855350-041318-bf8625fce15161c5ca76eff187a54d1b-200576816");
 
 
 const app = express()
@@ -26,7 +26,7 @@ app.use(express.static('imagenes'));
 app.use(cors(/*{origin:['http://localhost', 'http://localhost:3000', 'https://pruebatutto.alebike.online'], credentials:true}*/));
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8443;
 
 app.set('PORT', PORT)
 
@@ -90,7 +90,7 @@ const credentials = { key: privateKey, cert: certificate };
  //const credentials = {} 
 
 
-const server = https.createServer(credentials,app);
+const server = https.createServer(credentials, app);
 
  const io = new Server(server ,{
     cors: {
