@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({
   extended: false,
 }))
 app.use(express.static('imagenes'));
-app.use(cors());
+app.use(cors({origin:['http://localhost', 'http://localhost:3000', 'https://pruebatutto.alebike.online'], credentials:true}));
 
 
 const PORT = process.env.PORT || 3001;
