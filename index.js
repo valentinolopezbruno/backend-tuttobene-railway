@@ -23,7 +23,8 @@ app.use(bodyParser.urlencoded({
   extended: false,
 }))
 app.use(express.static('imagenes'));
-app.use(cors({origin:['http://localhost', 'http://localhost:3000', 'https://pruebatutto.alebike.online'], credentials:true}));
+app.use(cors());
+
 
 
 const PORT = process.env.PORT || 3001;
@@ -100,13 +101,9 @@ const server = https.createServer(credentials,app);
     allowEIO3: true
 });
 
-
-
-
 server.listen(app.get('PORT'), () => {
     console.log(`Server listening on port ${app.get('PORT')}...`)
 })
-
 
 const con = mysql.createConnection({
     host:'containers-us-west-133.railway.app',
