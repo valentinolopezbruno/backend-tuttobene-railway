@@ -23,8 +23,7 @@ app.use(bodyParser.urlencoded({
   extended: false,
 }))
 app.use(express.static('imagenes'));
-app.use(cors());
-
+app.use(cors({origin:['http://localhost', 'http://localhost:3000', 'https://pruebatutto.alebike.online'], credentials:true}));
 
 
 const PORT = process.env.PORT || 3001;
@@ -93,25 +92,17 @@ const credentials = { key: privateKey, cert: certificate };
 
 const server = https.createServer(credentials,app);
 
-/*  const io = new Server(server ,{
+ const io = new Server(server ,{
     cors: {
         origin: ['http://localhost:3000', 'https://pruebatutto.alebike.online', 'http://localhost'],
         credentials: true
     },
     allowEIO3: true
-}); */
-
-const io = new Server(server, {
-    cors: {
-        origin: '*', // Configura el comodín (*) para permitir cualquier origen
-        credentials: true
-    },
-    allowEIO3: true
 });
 
-server.listen(app.get('PORT'), () => {
-    console.log(`Server listening on port ${app.get('PORT')}...`)
-})
+
+
+
 
 const con = mysql.createConnection({
     host:'containers-us-west-133.railway.app',
@@ -1175,3 +1166,7 @@ async function crear_compra(productos, nombre, tel, dire, ciudad, formaPago, for
     io.emit('compra:create', {nombre, telefono: tel, direccion: dire, ciudad, pago: formaPago, enviar: formaEnvio, id: idpedido, total, pagado, fecha, estado: 0, productos, enviado: 0})
     return codigo
 }
+
+server.listen(app.get('PORT'), () => {
+    console.log(`Server listening on port ${app.get('PORT')}...`)
+})
