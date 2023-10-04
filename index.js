@@ -1167,6 +1167,6 @@ async function crear_compra(productos, nombre, tel, dire, ciudad, formaPago, for
     return codigo
 }
 
-server.listen(app.get('PORT'), () => {
+app.listen(app.get('PORT'), () => {
     console.log(`Server listening on port ${app.get('PORT')}...`)
 })
