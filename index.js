@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({
   extended: false,
 }))
 app.use(express.static('imagenes'));
-app.use(cors({origin:['http://localhost', 'http://localhost:3000', 'https://pruebatutto.alebike.online'], credentials:true}));
+app.use(cors(/*{origin:['http://localhost', 'http://localhost:3000', 'https://pruebatutto.alebike.online'], credentials:true}*/));
 
 
 const PORT = process.env.PORT || 3001;
@@ -95,12 +95,11 @@ const server = https.createServer(credentials,app);
  const io = new Server(server ,{
     cors: {
         origin: ['http://localhost:3000', 'https://pruebatutto.alebike.online', 'http://localhost'],
-        credentials: true
+        credentials: true,
+        methods: ['POST', 'GET'],
     },
     allowEIO3: true
 });
-
-
 
 
 
@@ -1167,6 +1166,6 @@ async function crear_compra(productos, nombre, tel, dire, ciudad, formaPago, for
     return codigo
 }
 
-app.listen(app.get('PORT'), () => {
+server.listen(app.get('PORT'), () => {
     console.log(`Server listening on port ${app.get('PORT')}...`)
 })
