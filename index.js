@@ -100,7 +100,10 @@ const server = https.createServer(credentials,app);
     allowEIO3: true
 });
 
-app.listen(app.get('PORT'), () => {
+
+
+
+server.listen(app.get('PORT'), () => {
     console.log(`Server listening on port ${app.get('PORT')}...`)
 })
 
