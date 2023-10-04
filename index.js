@@ -23,7 +23,7 @@ app.use(bodyParser.urlencoded({
   extended: false,
 }))
 app.use(express.static('imagenes'));
-app.use(cors({origin:'*'}));
+app.use(cors());
 
 
 const PORT = process.env.PORT || 3001;
