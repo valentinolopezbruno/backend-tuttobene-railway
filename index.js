@@ -93,9 +93,17 @@ const credentials = { key: privateKey, cert: certificate };
 
 const server = https.createServer(credentials,app);
 
- const io = new Server(server ,{
+/*  const io = new Server(server ,{
     cors: {
         origin: ['http://localhost:3000', 'https://pruebatutto.alebike.online', 'http://localhost'],
+        credentials: true
+    },
+    allowEIO3: true
+}); */
+
+const io = new Server(server, {
+    cors: {
+        origin: '*', // Configura el comodín (*) para permitir cualquier origen
         credentials: true
     },
     allowEIO3: true
