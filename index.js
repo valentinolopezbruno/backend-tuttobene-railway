@@ -92,10 +92,12 @@ const credentials = { key: privateKey, cert: certificate };
 
 const server = https.createServer(credentials,app);
 
-const io = new Server(server ,{
+ const io = new Server(server ,{
     cors: {
-        origin: '*'
-    }
+        origin: ['http://localhost:3000', 'https://pruebatutto.alebike.online'],
+        credentials: true
+    },
+    allowEIO3: true
 });
 
 app.listen(app.get('PORT'), () => {
